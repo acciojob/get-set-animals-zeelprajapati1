@@ -1,11 +1,45 @@
-//complete this code
-class Animal {}
+// Animal Class
+class Animal {
+    constructor(species) {
+        this._species = species; // Using underscore to indicate a private variable
+    }
 
-class Dog extends Animal {}
+    get species() {
+        return this._species; // Getter method to return species
+    }
 
-class Cat extends Animal {}
+    makeSound() {
+        console.log(`The ${this.species} makes a sound`);
+    }
+}
 
-// Do not change the code below this line
-window.Animal = Animal;
-window.Dog = Dog;
-window.Cat = Cat;
+// Cat Class (inherits from Animal)
+class Cat extends Animal {
+    constructor(species) {
+        super(species); // Calls the parent class (Animal) constructor
+    }
+
+    purr() {
+        console.log("purr");
+    }
+}
+
+// Dog Class (inherits from Animal)
+class Dog extends Animal {
+    constructor(species) {
+        super(species); // Calls the parent class (Animal) constructor
+    }
+
+    bark() {
+        console.log("woof");
+    }
+}
+
+// Example Usage
+const myCat = new Cat("Siamese");
+myCat.makeSound(); // Output: The Siamese makes a sound
+myCat.purr();      // Output: purr
+
+const myDog = new Dog("Golden Retriever");
+myDog.makeSound(); // Output: The Golden Retriever makes a sound
+myDog.bark();      // Output: woof
